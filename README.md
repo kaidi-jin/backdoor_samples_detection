@@ -17,6 +17,7 @@ Our code is implemented and tested on Keras 2.2.4  with TensorFlow 1.12.0 backen
 
 ## Quick Start 
 We have already injected the backdoor model and generated mutation model sets for deteciton test.
+
 For the mnist adversarial samples detection:
 ```
  python SPRT_detector.py -d mnist -m mutation_model/mnist_mf_1.0_vf_0.3/ -t adv
