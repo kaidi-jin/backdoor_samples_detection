@@ -1,7 +1,7 @@
 # BE_detection
  
 ## About
-Code to the paper "A Unified Framework for Analyzing and Detecting Malicious Examples of DNN Models".
+Code to the paper ["A Unified Framework for Analyzing and Detecting Malicious Examples of DNN Models"](https://arxiv.org/abs/2006.14871).
 
 The model mutation method based on the [code](https://github.com/dgl-prc/m_testing_adversatial_sample) for adversarial sample detection.
 
@@ -29,6 +29,7 @@ For the mnist backdoor samples detection:
 
 ## Useage
 1. Trojan model on `inject` folder `python injection_model.py -d mnist`.
+   For the GTSRB model, we reference from [Neural Cleanse](https://github.com/bolunwang/backdoor). You need to download dataset from their repo.
 2. Craft malicious examples on `attack` floder `python cw_attack.py -d mnist`. `python generate_backdoor_samples.py -d mnist`.
 3. On the `model mutation` folder
     Use Gaussian Fuzing to mutate the backdoor model (seed model). You can change the mutation rate in the gaussian_fuzzing file.
