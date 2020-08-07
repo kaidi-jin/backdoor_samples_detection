@@ -24,9 +24,11 @@ def generate_backdoor_data(dataset='mnist'):
     print("Your attack target label is: ",attack_target)
     backdoor_target_y = np.array(attack_target * len(backdoor_x))
 
+    original_x_path = ('../data/%s/backdoor/%s_original_data.npy' % (dataset,dataset))
     backdoor_x_path = ('../data/%s/backdoor/%s_backdoor_data.npy' % (dataset,dataset))
     backdoor_y_path = ('../data/%s/backdoor/%s_backdoor_target.npy'% (dataset,dataset))
     backdoor_y_true_path = ('../data/%s/backdoor/%s_backdoor_true.npy'% (dataset,dataset))
+    np.save(original_x_path,x_test)
     np.save(backdoor_x_path,backdoor_x)
     np.save(backdoor_y_path,backdoor_target_y)
     np.save(backdoor_y_true_path,y_test)
