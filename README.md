@@ -28,8 +28,8 @@ For the mnist backdoor samples detection:
 ```
 
 ## Useage
-1. Trojan model on `inject` folder `python injection_model.py -d mnist`.
-   For the GTSRB model, we reference from [Neural Cleanse](https://github.com/bolunwang/backdoor). You need to download dataset from their repo and put in the `/data/gtsrb`.
+1. Trojan model on `inject` folder with `python injection_model.py -d mnist`.
+   For the GTSRB model, we reference from [Neural Cleanse](https://github.com/bolunwang/backdoor). You need to download dataset from their repo and put datafile in the `/data/gtsrb` floder. For the Pubfig dataset, we provide clean model, square infected model, and watermark infected model. [Download Link](https://drive.google.com/drive/folders/13uZrH7NW-DrQJ2p6rb96k_HNfGvOUhe2?usp=sharing)
 2. Craft malicious examples on `attack` floder `python cw_attack.py -d mnist`. `python generate_backdoor_samples.py -d mnist`.
 3. On the `model mutation` folder
     Use Gaussian Fuzing to mutate the backdoor model (seed model). You can change the mutation rate in the gaussian_fuzzing file.
