@@ -27,9 +27,21 @@ For the mnist backdoor samples detection:
  python SPRT_detector.py -d mnist -m mutation_model/mnist_mf_1.0_vf_0.65/ -t backdoor
 ```
 
+## Models and Dataset
+
+### Traffic Sign Recognition
+
+For the data, we reference from [Neural Cleanse](https://github.com/bolunwang/backdoor). You need to download the dataset from their repo and put the dataset file in the `/data/gtsrb` folder.  For the backdoor model, we set the label '33' as our target label in the [injection file](https://github.com/kaidi-jin/backdoor_samples_detection/blob/5d745f98f9e7075edd1319f9dc48b9affd14de6b/injection/injection_model.py#L41)
+
+### Face Recognition Task
+
+Original data from the [office website](http://vision.seas.harvard.edu/pubfig83/). Our clean PubFig datasets on [google drive](https://drive.google.com/file/d/1sBtNRQ2ylvznHMmot-ZjH7V7k6c2OfN3/view?usp=sharing)
+We provide a clean model, square infected model, and watermark infected model on [Download Link](https://drive.google.com/drive/folders/13uZrH7NW-DrQJ2p6rb96k_HNfGvOUhe2?usp=sharing). The square model infected by the [square trigger](https://github.com/PurduePAML/TrojanNN/blob/master/models/face/fc6_1_81_694_1_1_0081.jpg) and the watermark model infected by the [watermark trigger](https://github.com/PurduePAML/TrojanNN/blob/master/models/face/fc6_wm_1_81_694_1_0_0081.jpg). The backdoor target label is set as '0'
+
+
 ## Useage
 1. Trojan model on `inject` folder with `python injection_model.py -d mnist`.
-   For the GTSRB model, we reference from [Neural Cleanse](https://github.com/bolunwang/backdoor). You need to download dataset from their repo and put datafile in the `/data/gtsrb` floder. For the Pubfig dataset, we provide clean model, square infected model, and watermark infected model. [Download Link](https://drive.google.com/drive/folders/13uZrH7NW-DrQJ2p6rb96k_HNfGvOUhe2?usp=sharing)
+
 2. Craft malicious examples on `attack` floder `python cw_attack.py -d mnist`. `python generate_backdoor_samples.py -d mnist`.
 3. On the `model mutation` folder
     Use Gaussian Fuzing to mutate the backdoor model (seed model). You can change the mutation rate in the gaussian_fuzzing file.
