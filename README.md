@@ -13,7 +13,7 @@ The model mutation method based on the [code](https://github.com/dgl-prc/m_testi
 - `model mutation:` Model mutation methods to detect malicious examples.
 - `utils`: Model utils and data utils
 ## Dependences
-Our code is implemented and tested on Keras 2.2.4  with TensorFlow 1.12.0 backend and the newest  Cleverhans.
+Our code is implemented and tested on Keras 2.2.4  with TensorFlow 1.12.0 backend, scipy==1.1.0 and the newest  Cleverhans.
 
 ## Quick Start 
 We have already injected the backdoor model and generated mutation model sets for detection test.
@@ -37,7 +37,7 @@ For the data, we reference from [Neural Cleanse](https://github.com/bolunwang/ba
 
 Original data from the [office website](http://vision.seas.harvard.edu/pubfig83/). Our clean PubFig datasets on [google drive](https://drive.google.com/file/d/1sBtNRQ2ylvznHMmot-ZjH7V7k6c2OfN3/view?usp=sharing).
 We provide a clean model, square infected model, and watermark infected model on [Download Link](https://drive.google.com/drive/folders/13uZrH7NW-DrQJ2p6rb96k_HNfGvOUhe2?usp=sharing). The square model infected by the [square trigger](https://github.com/PurduePAML/TrojanNN/blob/master/models/face/fc6_1_81_694_1_1_0081.jpg) and the watermark model infected by the [watermark trigger](https://github.com/PurduePAML/TrojanNN/blob/master/models/face/fc6_wm_1_81_694_1_0_0081.jpg). The backdoor target label is set as '0'.
-
+If you want to generate backdoor examples for face recognition task, please put the clean PubFig datasets on `/data/face/` folder  
 
 ## Useage
 1. Trojan model on `inject` folder with `python injection_model.py -d mnist`.

@@ -43,6 +43,10 @@ elif DATASET == 'gtsrb':
     IMG_SHAPE = (32, 32, 3)
     EPOCH = 10
     MODEL_FILEPATH = '../model/gtsrb_backdoor.h5'  # model save file path 
+elif 'face' in DATASET:
+    TARGET_LS = [1]
+    NUM_CLASSES = 83
+    IMG_SHAPE = (224, 224, 3)
 else:
     print("We only support 'mnist' or 'gtsrb' now.")
     exit(1)

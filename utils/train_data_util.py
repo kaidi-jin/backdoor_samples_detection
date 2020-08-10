@@ -58,9 +58,41 @@ def load_gtsrb_dataset(data_file='../data/gtsrb/gtsrb_dataset.h5'):
     print(X_train.shape,Y_train.shape,X_test.shape,Y_test.shape)
     return X_train, Y_train, X_test, Y_test
 
+def load_face_dataset(hdf5_path='../data/pubfig/clean_pubfig_dataset.h5',mean=False):
+    if not os.path.exists(hdf5_path):
+        print(
+            "The data file path %s does not exist."%(hdf5_path) )
+        exit(1)
+    NUM_CLASSES = 83
+    hdf5_file = h5py.File(hdf5_path, "r")
+    train_data = hdf5_file["train_img"][:]
+    train_label = hdf5_file["train_labels"][:]
+    train_label = np_utils.to_categorical(train_label,NUM_CLASSES) 
+    test_data = hdf5_file["test_img"][:]
+    test_label = hdf5_file["test_labels"][:]
+    test_label = np_utils.to_categorical(test_label,NUM_CLASSES) 
+    val_data = hdf5_file["val_img"][:]
+    val_label = hdf5_file["val_labels"][:]
+    val_label = np_utils.to_categorical(val_label,NUM_CLASSES) 
+    test_all = np.vstack((test_data,val_data)) 
+    test_all_label = np.vstack((test_label,val_label))
+    #train_data = train_data[..., ::-1]
+    #test_all = test_all[..., ::-1]
+    if mean ==True:
+        train_data = train_data[..., ::-1]
+        train_data[..., 0] -= 76.2475
+        train_data[..., 1] -= 89.2961
+        train_data[..., 2] -= 111.3693
+        test_all = test_all[..., ::-1]
+        test_all[..., 0] -= 76.2475
+        test_all[..., 1] -= 89.2961
+        test_all[..., 2] -= 111.3693
+    return train_data,train_label,test_all,test_all_label
 
 def load_train_dataset(DATASET='mnist'):
     if DATASET == 'mnist':
         return load_mnist_dataset()
-    else:
+    elif DATASET == 'gtsrb':
         return load_gtsrb_dataset()
+    else:
+        return load_face_dataset()
