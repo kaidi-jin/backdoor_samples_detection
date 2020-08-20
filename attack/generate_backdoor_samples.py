@@ -85,7 +85,7 @@ def generate_backdoor_data(dataset='mnist'):
     print("Your attack target label is: ",attack_target)
     backdoor_target_y = np.array(attack_target * len(backdoor_x))
 
-    if not os.path.exists(dataset):
+    if not os.path.exists('../data/%s/backdoor/'%dataset):
         os.makedirs('../data/%s/backdoor/'%dataset)
     original_x_path = ('../data/%s/backdoor/%s_original_data.npy' % (dataset,dataset))
     backdoor_x_path = ('../data/%s/backdoor/%s_backdoor_data.npy' % (dataset,dataset))
