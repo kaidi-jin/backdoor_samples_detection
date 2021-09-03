@@ -58,3 +58,4 @@ If you want to generate backdoor examples for face recognition task, please put 
 - [Model Mutation](https://github.com/dgl-prc/m_testing_adversatial_sample)
 - [Cleverhans](https://github.com/tensorflow/cleverhans)
 - [Neural Cleanse](https://github.com/bolunwang/backdoor)
+- [keras_vggface](https://github.com/rcmalli/keras-vggface)
