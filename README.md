@@ -37,7 +37,7 @@ For the data, we reference from [Neural Cleanse](https://github.com/bolunwang/ba
 
 Original data from the [office website](http://vision.seas.harvard.edu/pubfig83/). Our clean PubFig datasets on [google drive](https://drive.google.com/file/d/1sBtNRQ2ylvznHMmot-ZjH7V7k6c2OfN3/view?usp=sharing).
 We provide a clean model, square infected model, and watermark infected model on [Download Link](https://drive.google.com/drive/folders/13uZrH7NW-DrQJ2p6rb96k_HNfGvOUhe2?usp=sharing). The square model infected by the [square trigger](https://github.com/PurduePAML/TrojanNN/blob/master/models/face/fc6_1_81_694_1_1_0081.jpg) and the watermark model infected by the [watermark trigger](https://github.com/PurduePAML/TrojanNN/blob/master/models/face/fc6_wm_1_81_694_1_0_0081.jpg). The backdoor target label is set as '0'.
-If you want to generate backdoor examples for face recognition task, please put the clean PubFig datasets on `/data/face/` folder  
+If you want to generate backdoor examples for face recognition task, please put the clean PubFig datasets on `/data/face/` folder and refer to [keras_vggface]to train the model.(https://github.com/rcmalli/keras-vggface) for the dependece.
 
 ## Useage
 1. Trojan model on `inject` folder with `python injection_model.py -d mnist`.
